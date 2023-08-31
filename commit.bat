@@ -5,9 +5,10 @@ For /f "tokens=1-2 delims=/:" %%a in ("%TIME%") do (set mytime=%%a%%b)
 
 echo "# ksp" >> README.md
 rem git init
-git add README.md
+rem git add README.md
+git add --all
 git commit -m "%mydate%_%mytime%"
 git branch -M main
-rem git remote add origin https://github.com/Dalassos/ksp.git
+git remote add origin https://github.com/Dalassos/ksp.git
 git push -u origin main
 pause
