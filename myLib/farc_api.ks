@@ -5,15 +5,8 @@ function airDensity {
 
 	local absTmp is atmos:ALTTEMP(alti).
 	local absPrs is atmos:ALTITUDEPRESSURE(alti)*Constant:AtmToKPa*1000.
-	//PRINT alti + " m is altitude".
-	//PRINT atmos:ALTITUDEPRESSURE(alti) + " atm is local pressure".
-	
 	local airDens is (absPrs*atmos:MOLARMASS/(CONSTANT:IdealGas*absTmp)).
 	
-	PRINT absTmp + " K".
-	PRINT absPrs + " Pa".
-	
-	PRINT airDens + " kg/m3".
 	return airDens.
 }
 
@@ -65,14 +58,9 @@ function liftoffSpeed {
 	local lift is calculateWeight(0).
 	local airDensity is airDensity(alti).
 	local wingArea is calculateWingArea().
-	local liftCoefficient is 0.45.
+	local liftCoefficient is 0.4.
 	
 	local minSpd is (2*lift/(airDensity*wingArea*liftCoefficient))^0.5.
 	
 	return minSpd.
 }
-
-PRINT calculateWingArea() + " m2".
-PRINT calculateWeight() + " kN".
-PRINT liftoffSpeed() + " m/s".
-PRINT "program done".
