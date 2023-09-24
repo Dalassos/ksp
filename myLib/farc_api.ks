@@ -12,7 +12,7 @@ function airDensity {
 
 //wing area from FARC
 function calculateWingArea {    
-	parameter craftName is SHIP.
+	local craftName is SHIP.
 	
     local totalWingArea is 0.
     
@@ -24,7 +24,7 @@ function calculateWingArea {
 
 function calculateLift {
 	parameter alti is ALTITUDE.
-    parameter craftName is SHIP.
+    local craftName is SHIP.
     local totalLift is 0.
     local airDensity is airDensity(alti).
 
